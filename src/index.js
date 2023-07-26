@@ -6,10 +6,11 @@ const select = document.querySelector('.breed-select')
 console.dir(select)
 const catInfo = document.querySelector('.cat-info')
 console.dir(catInfo);
-select.addEventListener('input', fetchCatByBreed);
+select.addEventListener('change', fetchCatByBreed);
 let storedBreeds = [];
 
 function fetchCatByBreed(evt) {
+    fetchBreeds()
     console.log(evt.currentTarget.elements)
 };
 
