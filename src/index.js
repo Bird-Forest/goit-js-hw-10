@@ -13,7 +13,6 @@ select.addEventListener('input', (evt) => {
     console.log(evt.currentTarget.elements)
 });
 
-//    console.log(evt.currentTarget.elements)
 fetchBreeds()    
     .then((data) => {
     console.log(data)
