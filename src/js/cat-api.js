@@ -1,13 +1,17 @@
 const searchParams = new URLSearchParams({
-    fields: 'name,image,description,temperament,',
+    fields: 'id,name,temperament,description,url',
 });
-const url = `https://api.thecatapi.com/v1/breeds?${searchParams}`;
+
+
+
+const breeds = `https://api.thecatapi.com/v1/breeds`;
+const breed = 'https://api.thecatapi.com/v1/images/search?breed_ids={breed.id}'
 const api_key = "live_CIw3lZRkcpgh759C9YBXivIvAETipzFqRyXtOHa4sXukf5xIGdNG9JZOQ72DPlKH"
 
 
 
 export function fetchBreeds() {
-    return fetch(url,{headers: {
+    return fetch(breeds,{headers: {
     'x-api-key': api_key
     }})
         .then((response) => {
@@ -19,11 +23,36 @@ export function fetchBreeds() {
     })
 };
 
-
+export function fetchCatByBreed() {
+    let breed_ids = select.value;
+    return fetch(breed,{headers: {
+    'x-api-key': api_key
+    }})
+        .then((response) => {
+            // console.log(response)
+        if (!response.ok) {
+        throw new Error(response.status);
+        }
+        return response.json();
+        })
+    
+};
 
 
 // https://api.thecatapi.com/v1/images/search?breed_ids={breed.id}
 
+// ?${searchParams}
+        // "breeds": 
+
+        //         "id": "acur",
+        //         "name": "American Curl",
+                
+        //         "temperament": "Affectionate, Curious, Intelligent, Interactive, Lively, Playful, Social",
+             
+        //         "description": "Distinguished by truly unique ears that curl back in a graceful arc, offering an alert, perky, happily surprised expression, they cause people to break out into a big smile when viewing their first Curl. Curls are very people-oriented, faithful, affectionate soulmates, adjusting remarkably fast to other pets, children, and new situations.",
+
+        // "id": "ji-5E0VwY",
+        // "url": "https://cdn2.thecatapi.com/images/ji-5E0VwY.jpg",
 
 
 // +++++++++++++

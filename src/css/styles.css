@@ -1,10 +1,31 @@
 .breed-select {
-  width: 300px;
-  height: 50px;
+  position: relative;
+  width: 600px;
+  height: 60px;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 32px;
+  color: #1c0c42;
+  border: 5px #211342 solid;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 10px;
 }
 
 .cat-info {
-  width: 300px;
-  height: 300px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 600px;
+  height: 800px;
   border: 1px coral solid;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.title {
+  font-size: 60px;
 }
