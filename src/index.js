@@ -41,8 +41,6 @@ const api_key = "live_CIw3lZRkcpgh759C9YBXivIvAETipzFqRyXtOHa4sXukf5xIGdNG9JZOQ7
 function fetchCatByBreed() {
     let breedId = select.value
     console.log(breedId)
-    let id = select.selectedIndex
-    console.log(id)
     
     const breed = `https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}` 
     
@@ -50,43 +48,50 @@ function fetchCatByBreed() {
     'x-api-key': api_key
     }})
         .then((response) => {
-            console.log(response)
         if (!response.ok) {
         throw new Error(response.status);
         }
         return response.json();
         })
-        .then((data) => {
+    .then((data) => {
+        let id = select.selectedIndex
+        data = storedBreeds[id];
         
-        console.log(data)
-        data = storedBreeds[id]
-        console.log(data)
+        // const image = document.createElement('img');
+        // image.src = `${storedBreeds[id].image.url}`;
+
+        // const title = document.createElement('h2');
+        // title.textContent = `${storedBreeds[id].name}`;
+        // title.style.fontSize = `${80}px`;
     
-        console.log(storedBreeds[id].name)
-        console.log(storedBreeds[id].description)
-        console.log(storedBreeds[id].temperament)
-        console.log(storedBreeds[id].image.url)
+        // const description = document.createElement('p');
+        // description.textContent = `${storedBreeds[id].description}`;
+
+        // const temperament = document.createElement('h3')
+        // temperament.textContent = `Temperament: ${storedBreeds[id].temperament}`;
+
+        // catInfo.append(image, title, description, temperament);
             
-            renderBreeds(storedBreeds[id])
-    })
-        
+            return renderBreeds();    
+    })  
     .catch((error) => console.log(error))
 };
 
 
 function renderBreeds() { 
+    let id = select.selectedIndex
 
     const image = document.createElement('img');
     image.src = `${storedBreeds[id].image.url}`;
-    console.log(image)
+    
     const title = document.createElement('h2');
     title.textContent = `${storedBreeds[id].name}`;
     title.style.fontSize = `${80}px`;
-
+    
     const description = document.createElement('p');
     description.textContent = `${storedBreeds[id].description}`;
-
-    const temperament = document.createElement('h3')
+    
+    const temperament = document.createElement('h3');
     temperament.textContent = `Temperament: ${storedBreeds[id].temperament}`;
 
     catInfo.append(image, title, description, temperament);
