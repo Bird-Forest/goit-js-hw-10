@@ -1,42 +1,30 @@
-const searchParams = new URLSearchParams({
-    fields: 'id,name,temperament,description,url',
-});
-
-
+const errorItem = document.querySelector('.error');
+// errorItem.hidden = true;
+const loaderItem = document.querySelector('.loader');
+// loaderItem.hidden = false;
+const catInfo = document.querySelector('.cat-info')
 
 const breeds = `https://api.thecatapi.com/v1/breeds`;
-const breed = 'https://api.thecatapi.com/v1/images/search?breed_ids={breed.id}'
+// const breed = 'https://api.thecatapi.com/v1/images/search?breed_ids={breed.id}'
 const api_key = "live_CIw3lZRkcpgh759C9YBXivIvAETipzFqRyXtOHa4sXukf5xIGdNG9JZOQ72DPlKH"
-
-
 
 export function fetchBreeds() {
     return fetch(breeds,{headers: {
     'x-api-key': api_key
     }})
         .then((response) => {
-            // console.log(response)
-        if (!response.ok) {
-        throw new Error(response.status);
-        }
-        return response.json();
-    })
-};
-
-export function fetchCatByBreed() {
-    let breed_ids = select.value;
-    return fetch(breed,{headers: {
-    'x-api-key': api_key
-    }})
-        .then((response) => {
-            // console.log(response)
         if (!response.ok) {
         throw new Error(response.status);
         }
         return response.json();
         })
-    
 };
+
+
+
+
+
+
 
 
 // https://api.thecatapi.com/v1/images/search?breed_ids={breed.id}
