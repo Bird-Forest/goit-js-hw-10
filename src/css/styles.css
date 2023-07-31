@@ -1,16 +1,3 @@
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
 .loader {
   position: absolute;
   display: block;
@@ -57,7 +44,7 @@
   }
 }
 
-/* .loader::after {
+.loader::after {
   content: '';
   display: block;
 
@@ -67,7 +54,7 @@
   background-repeat: no-repeat;
   margin-top: 80px;
   margin-left: 100px;
-} */
+}
 
 .error {
   position: absolute;
@@ -115,16 +102,15 @@
   }
 }
 
-/* .error::after {
+.error::after {
   content: '';
   display: block;
   width: 700px;
   height: 700px;
   background-image: url('https://papik.pro/grafic/uploads/posts/2023-04/thumbs/1682206904_papik-pro-p-stikeri-rizhii-kot-vektor-6.jpg');
   background-repeat: no-repeat;
-  margin-top: 80px;
   margin-left: 100px;
-} */
+}
 
 .breed-select {
   position: static;
@@ -134,9 +120,11 @@
 
   font-weight: 700;
   font-style: normal;
-  font-size: 32px;
+  font-size: 28px;
   color: #1c0c42;
-  border: 5px #211342 solid;
+  /* outline: transparent; */
+  /* outline-style: none; */
+  border: 2px #211342 solid;
 
   margin-left: 100px;
   margin-right: 100px;
@@ -155,5 +143,4 @@
 
   margin-left: 100px;
   margin-right: 100px;
-  /* color: #ffffff; */
 }
