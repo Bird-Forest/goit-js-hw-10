@@ -2,28 +2,17 @@ const loaderImg = 'url(https://papik.pro/grafic/uploads/posts/2023-04/1682206914
 
 import './css/styles.css';
 
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
 import { fetchBreeds } from "./js/cat-api";
-
-// Notify.failure('Oops! Something went wrong! Try reloading the page!');
 
 const errorItem = document.querySelector('.error');
 errorItem.textContent = '';
 errorItem.style.display = 'none';
 const loaderItem = document.querySelector('.loader');
-// loaderItem.textContent = '';
-// loaderItem.style.display = 'none';
-
 
 const catInfo = document.querySelector('.cat-info');
 const select = document.querySelector('.breed-select');
 select.addEventListener('change', fetchCatByBreed);
 select.style.visibility = 'hidden';
-// select.style.display = 'none';
-
-
-
 
 let storedBreeds = [];
 
@@ -44,7 +33,6 @@ fetchBreeds()
     })
     .catch((error) => console.log(error)); 
         
-
 const api_key = `live_CIw3lZRkcpgh759C9YBXivIvAETipzFqRyXtOHa4sXukf5xIGdNG9JZOQ72DPlKH`
 
 function fetchCatByBreed() {
@@ -69,12 +57,7 @@ function fetchCatByBreed() {
         
             return renderBreeds();
         })
-        .catch((error) => {
-            errorMessage()
-        //     loaderItem.classList.replace('loader', 'error');
-        // loaderItem.textContent = 'Oops! Something went wrong! Try reloading the page!'
-            
-        });
+        .catch((error) => errorMessage());
 };
 
 function renderBreeds() { 
@@ -107,30 +90,23 @@ function renderBreeds() {
     temperament.style.marginTop = 0;
 
     catInfo.append(image, title, description, temperament);
-
-    loaderItem.style.display = 'none';
 };
 
-
 function onLoader() {
+
     select.style.visibility = 'visible';
-    loaderItem.textContent = 'Loading data, please wait...';
-    loaderItem.style.display = 'block'
-    errorItem.style.display = 'none';
-    errorItem.textContent = '';
-    loaderItem.classList.replace('error', 'loader');
-    
+   
     fetchCatByBreed();
 };
 
 onLoader()
 
+function errorMessage() {
 
-function errorMessage(error) {
-    errorItem.textContent = 'Oops! Something went wrong! Try reloading the page!';
-    errorItem.style.display = 'block';
     loaderItem.style.display = 'none';
     loaderItem.textContent = '';
+    errorItem.textContent = 'Oops! Something went wrong! Try reloading the page!';
+    errorItem.style.display = 'block';
 
 };
 // // errorMessage()
@@ -154,3 +130,10 @@ function errorMessage(error) {
 // boxUrl.style.height = `${700}px`;
 // boxUrl.style.backgroundImage = 'url(https://t3.ftcdn.net/jpg/00/61/67/86/240_F_61678606_bNPFDZsyh2tG7Lxjm5Jd0Xd7QMeumObE.jpg)'
 // boxUrl.style.backgroundRepeat = 'no-repeat';
+
+// errorItem.style.display = 'none';
+    // errorItem.textContent = '';
+    // loaderItem.textContent = 'Loading data, please wait...';
+    // loaderItem.style.display = 'block'
+    // loaderItem.classList.replace('error', 'loader');
+    
