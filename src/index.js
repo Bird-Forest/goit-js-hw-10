@@ -48,7 +48,7 @@ function fetchCatByBreed() {
             return response.json();
         })
         
-    .then((data) => {
+        .then((data) => {
         let id = select.selectedIndex;
         data = storedBreeds[id];
         
