@@ -66,7 +66,7 @@ function fetchCatByBreed() {
 function onLoader() {
     select.style.display = 'block';
    
-    fetchCatByBreed();
+    // fetchCatByBreed();
 };
 onLoader()
 
