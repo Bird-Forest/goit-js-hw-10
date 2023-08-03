@@ -32,7 +32,8 @@ fetchBreeds()
     })
     .catch((error) => console.log(error)); 
 
-function fetchCatByBreed() {
+function fetchCatByBreed(evt) {
+    evt.preventDefault()
     let breedId = select.value 
     const url = "https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}"
     
@@ -53,7 +54,7 @@ function fetchCatByBreed() {
         data = storedBreeds[id];
         
         const obj = {
-            name: data.name,
+            title: data.name,
             description: data.description,
             temperament: data.temperament,
             image: data.image.url
