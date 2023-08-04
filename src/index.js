@@ -91,7 +91,7 @@ function renderBreeds({ image, title, description, temperament}) {
     catInfo.innerHTML = `<img src="${image}" alt="" class = "picture">
     <h2 class = "title">${title}</h2>
     <p class = "description">${description}</p>
-    <h3 class = "temperament">${temperament}</h3>`
+    <h3 class = "temperament">Temperament: ${temperament}</h3>`
 
     loaderItem.style.display = 'none';
 };
