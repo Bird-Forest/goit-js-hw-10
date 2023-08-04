@@ -50,24 +50,28 @@ function fetchCatByBreed(evt) {
         })
         
         .then((data) => {
-        let id = select.selectedIndex;
-        data = storedBreeds[id];
+            let id = select.selectedIndex;
+            data = storedBreeds[id];
         
-        const obj = {
-            title: data.name,
-            description: data.description,
-            temperament: data.temperament,
-            image: data.image.url
-        }
-                return renderBreeds(obj);
-    })
-    .catch((error) => console.log(error));
-}
+            const obj = {
+                title: data.name,
+                description: data.description,
+                temperament: data.temperament,
+                image: data.image.url
+            }
+            return renderBreeds(obj);
+        })
+        .catch((error) => {
+            setTimeout(() => {
+                catInfo.style.display = 'none';
+                errorMessage()
+            }, 1000);
+        });
+};
 
 function onLoader() {
+
     select.style.display = 'block';
-   
-    // fetchCatByBreed();
 };
 onLoader()
 
