@@ -13,12 +13,23 @@ select.addEventListener('change', fetchCatByBreed);
 
 errorItem.style.display = 'none';
 select.style.display = 'none';
-select.value = '';
+// select.value = '';
 
 let storedBreeds = [];
 
+window.addEventListener('load', function () {
+    setTimeout(() => {
+        loaderItem.style.display = 'block';
+    }, 0);
+});
+
 fetchBreeds()
     .then((data) => {
+        select.style.display = 'block';
+        loaderItem.style.display = 'none';
+        errorItem.style.display = 'none';
+        catInfo.style.display = 'block';
+
         storedBreeds = data;
         
         for (let i = 0; i < storedBreeds.length; i++) {
@@ -34,6 +45,8 @@ fetchBreeds()
 
 function fetchCatByBreed(evt) {
     evt.preventDefault()
+    errorItem.style.display = 'none';
+    
     let breedId = select.value 
     const url = "https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}"
     
@@ -52,7 +65,8 @@ function fetchCatByBreed(evt) {
         .then((data) => {
             let id = select.selectedIndex;
             data = storedBreeds[id];
-        
+            console.log(data)
+            
             const obj = {
                 title: data.name,
                 description: data.description,
@@ -63,21 +77,14 @@ function fetchCatByBreed(evt) {
         })
         .catch((error) => {
             setTimeout(() => {
-                catInfo.style.display = 'none';
+                errorItem.textContent = 'Oops! Please try another option.';
                 errorMessage()
             }, 1000);
         });
 };
 
-function onLoader() {
-
-    select.style.display = 'block';
-};
-onLoader()
-
 function errorMessage() {
-    loaderItem.style.display = 'none';
-
+    catInfo.innerHTML = '';
     errorItem.style.display = 'block';
 };
 
