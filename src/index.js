@@ -20,6 +20,7 @@ let storedBreeds = [];
 window.addEventListener('load', function () {
     setTimeout(() => {
         loaderItem.style.display = 'block';
+         errorItem.style.display = 'none';
     }, 0);
 });
 
@@ -56,6 +57,7 @@ function fetchCatByBreed(evt) {
         }
     })
         .then((response) => {
+            console.log(response)
             if (!response.ok) {
                 throw errorMessage();
             }
@@ -77,7 +79,6 @@ function fetchCatByBreed(evt) {
         })
         .catch((error) => {
             setTimeout(() => {
-                errorItem.textContent = 'Oops! Please try another option.';
                 errorMessage()
             }, 1000);
         });
@@ -86,6 +87,7 @@ function fetchCatByBreed(evt) {
 function errorMessage() {
     catInfo.innerHTML = '';
     errorItem.style.display = 'block';
+    errorItem.textContent = 'Oops! Please try another option.';
 };
 
 function renderBreeds({ image, title, description, temperament}) { 
