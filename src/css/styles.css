@@ -1,19 +1,25 @@
+body {
+  background-color: rgba(195, 226, 232, 0.626);
+  background-image: url('../img/1672248930_kalix-club-p-pattern-kotiki-instagram-47.jpg');
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+}
 .loader {
-  position: absolute;
   display: block;
-  flex-direction: column;
   align-items: center;
 
   font-weight: 700;
   font-style: normal;
-  font-size: 32px;
+  font-size: 28px;
   color: rgb(59, 45, 90);
   text-align: center;
 
-  width: 700px;
-  height: 100px;
+  min-width: 400px;
+  height: 50px;
   margin-top: 50px;
-  margin-left: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .loader::before {
@@ -22,8 +28,10 @@
   height: 15px;
   border-radius: 50%;
   display: block;
-  margin: 15px auto;
-  position: relative;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
   color: rgb(59, 45, 90);
   box-sizing: border-box;
   animation: animloader 1s linear infinite alternate;
@@ -44,124 +52,140 @@
   }
 }
 
-.loader::after {
-  content: '';
-  display: block;
-
-  width: 700px;
-  height: 700px;
-  background-image: url(https://papik.pro/grafic/uploads/posts/2023-04/1682206914_papik-pro-p-stikeri-rizhii-kot-vektor-26.png);
-  background-repeat: no-repeat;
-  margin-top: 80px;
-  margin-left: 100px;
-}
-
 .error {
-  position: absolute;
-  display: block;
-  flex-direction: column;
-  align-items: center;
-
-  font-weight: 700;
-  font-style: normal;
-  font-size: 32px;
   color: rgb(247, 15, 18);
-  text-align: center;
-
-  width: 700px;
-  height: 100px;
-  margin-top: 50px;
-  margin-left: 100px;
 }
 
 .error::before {
-  content: '';
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  display: block;
-  margin: 15px auto;
-  position: relative;
   color: rgb(247, 15, 18);
-  box-sizing: border-box;
-  animation: animloader 1s linear infinite alternate;
 }
 
-@keyframes animloader {
-  0% {
-    box-shadow: -38px -12px, -14px 0, 14px 0, 38px 0;
+@media screen and (min-width: 650px) {
+  .loader {
+    font-size: 32px;
   }
-  33% {
-    box-shadow: -38px 0px, -14px -12px, 14px 0, 38px 0;
-  }
-  66% {
-    box-shadow: -38px 0px, -14px 0, 14px -12px, 38px 0;
-  }
-  100% {
-    box-shadow: -38px 0, -14px 0, 14px 0, 38px -12px;
-  }
-}
-
-.error::after {
-  content: '';
-  display: block;
-  width: 700px;
-  height: 700px;
-  background-image: url('https://papik.pro/grafic/uploads/posts/2023-04/thumbs/1682206904_papik-pro-p-stikeri-rizhii-kot-vektor-6.jpg');
-  background-repeat: no-repeat;
-  margin-left: 100px;
 }
 
 .breed-select {
   position: static;
-  display: block;
-  width: 700px;
-  height: 60px;
+  display: flex;
+  width: 100%;
+  height: 50px;
 
   font-weight: 700;
   font-style: normal;
-  font-size: 28px;
+  font-size: 24px;
   color: #1c0c42;
-  /* outline: transparent; */
-  /* outline-style: none; */
-  border: 2px #211342 solid;
 
-  margin-left: 100px;
-  margin-right: 100px;
+  border: 3px hsla(258, 80%, 67%, 0.362) solid;
+  outline-color: transparent;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 1);
+
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 10px;
+  padding-left: 20px;
+}
+
+@media screen and (min-width: 650px) {
+  .breed-select {
+    max-width: 800px;
+    height: 60px;
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .breed-select {
+    font-size: 32px;
+  }
 }
 
 .cat-info {
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: baseline;
 
-  width: 700px;
-  height: 800px;
+  min-width: 320px;
+  background-position: 50% 50%;
 
-  margin-left: 100px;
-  margin-right: 100px;
+  background-color: white;
+  box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.58);
+  border-radius: 10px;
+
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .picture {
   display: block;
-  width: 700px;
-  height: 600px;
+  width: 100%;
+
   object-fit: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
-  font-size: 38px;
+  font-size: 24px;
   margin-bottom: 0;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .description {
-  font-size: 24px;
+  font-size: 16px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .temperament {
-  font-size: 28px;
+  font-size: 20px;
   margin-top: 0;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+@media screen and (min-width: 650px) {
+  .cat-info {
+    max-width: 800px;
+  }
+  .title {
+    font-size: 28px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .description {
+    font-size: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .temperament {
+    font-size: 24px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 950px) {
+  .title {
+    font-size: 32px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .description {
+    font-size: 24px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .temperament {
+    font-size: 28px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
