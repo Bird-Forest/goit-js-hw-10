@@ -77,7 +77,7 @@ function errorMessage() {
     loaderItem.style.display = 'none';
     loaderItem.classList.remove('error');
     loaderItem.textContent = '';
-  }, 3000);
+  }, 13000);
 }
 
 function renderBreeds({ image, title, description, temperament }) {
